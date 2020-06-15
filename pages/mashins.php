@@ -80,7 +80,7 @@
         <div class="menu">
           <ul class="menu__list">              
             <li class="menu__item">
-              <span class="menu__link active">Змінний журнал</span>              
+              <a href="journal.php" class="menu__link">Змінний журнал</a>              
             </li>
             <li class="menu__item">
               <a href="#" class="menu__link">Сировина</a>              
@@ -119,7 +119,7 @@
               <a href="#" class="menu__link">Обладнання</a>
               <ul class="sub-menu__list">
                 <li>
-                  <a href="mashins.php" class="sub-menu__link">Пакувальні машини</a>
+                  <span class="sub-menu__link active">Пакувальні машини</span>
                 </li>
                 <li>
                   <a href="lines.php" class="sub-menu__link">Автоматизовані лінії</a>
@@ -143,7 +143,7 @@
     <div class="main">
       <div class="container">
         <div class="main__row">
-        <h1 class="title">Змінний журнал</h1>
+        <h1 class="title">Пакувальні машини</h1>
           <table>
             <tr>
               <!-- <th>Код норми виготовлення продукції</th> -->

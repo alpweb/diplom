@@ -80,7 +80,7 @@
         <div class="menu">
           <ul class="menu__list">              
             <li class="menu__item">
-              <span class="menu__link active">Змінний журнал</span>              
+              <a href="journal.php" class="menu__link">Змінний журнал</a>              
             </li>
             <li class="menu__item">
               <a href="#" class="menu__link">Сировина</a>              
@@ -106,7 +106,7 @@
                       <a href="longcut.php" class="sub-sub-menu__link">Довгорізана</a>
                     </li>
                     <li>
-                      <a href="shortcut.php" class="sub-sub-menu__link">Короткорізана</a>
+                      <span class="sub-sub-menu__link active">Короткорізана</span>
                     </li>
                     <li>
                       <a href="typeofproduct.php" class="sub-sub-menu__link">Вид продукції</a>
@@ -143,7 +143,7 @@
     <div class="main">
       <div class="container">
         <div class="main__row">
-        <h1 class="title">Змінний журнал</h1>
+        <h1 class="title">Короткорізана</h1>
           <table>
             <tr>
               <!-- <th>Код норми виготовлення продукції</th> -->

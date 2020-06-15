@@ -72,27 +72,56 @@ include_once("functions/function_db.php");
             </li>
             <li class="menu__item">
               <a href="#" class="menu__link">Сировина</a>
-              <span class="sub-menu__arrow arrow"></span>
               <ul class="sub-menu__list">
                 <li>
-                  <a href="#" class="sub-menu__link">Сировина</a>
+                  <a href="pages/raw.php" class="sub-menu__link">Сировина</a>
                 </li>
                 <li>
-                  <a href="#" class="sub-menu__link">Вид сировини</a>
+                  <a href="pages/typeofraw.php" class="sub-menu__link">Вид сировини</a>
                 </li>
               </ul>
             </li>
             <li class="menu__item">
               <a href="#" class="menu__link">Продукція</a>
+              <ul class="sub-menu__list">
+                <li>
+                  <a href="pages/product.php" class="sub-menu__link">Продукція</a>
+                </li>
+                <li>
+                  <a href="#" class="sub-menu__link">Вид продукції</a>
+                  <ul class="sub-sub-menu__list">
+                    <li>
+                      <a href="pages/longcut.php" class="sub-sub-menu__link">Довгорізана</a>
+                    </li>
+                    <li>
+                      <a href="pages/shortcut.php" class="sub-sub-menu__link">Короткорізана</a>
+                    </li>
+                    <li>
+                      <a href="pages/typeofproduct.php" class="sub-sub-menu__link">Вид продукції</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li class="menu__item">
               <a href="#" class="menu__link">Обладнання</a>
+              <ul class="sub-menu__list">
+                <li>
+                  <a href="pages/mashins.php" class="sub-menu__link">Пакувальні машини</a>
+                </li>
+                <li>
+                  <a href="pages/lines.php" class="sub-menu__link">Автоматизовані лінії</a>
+                </li>
+                <li>
+                  <a href="pages/mashinslines.php" class="sub-menu__link">Пакувальні машини - лінії</a>
+                </li>
+              </ul>
             </li>
             <li class="menu__item">
-              <a href="#" class="menu__link">Заявка на виробництво</a>
+              <a href="pages/request.php" class="menu__link">Заявка на виробництво</a>
             </li>
             <li class="menu__item">
-              <a href="#" class="menu__link">Звіти</a>
+              <a href="pages/reports.php" class="menu__link">Звіти</a>
             </li>
           </ul>
         </div>
