@@ -9,16 +9,14 @@
 
   $t1_count = getCount($tableName2);
 
-  view($table2);
-  echo $t1_count;
-
   $fields = getFields($table1);
   $nameID = $fields[0];
 
   // $fields_1 = array_slice($fields, 1);
 
   if( isset($_POST['del']) ) {
-    $del = delRow($tableName, $nameID, $_POST['del']);
+    // view($_POST);
+    $del = delRow($tableName1, $nameID, $_POST['del']);
     header("Refresh: 0");
   }
 
@@ -31,7 +29,7 @@
     $data = $_POST;
     array_pop($data);
 
-    // $add = addRow($tableName1, $data); ----------------------------------------
+    $add = addRow($tableName1, $data);
     
     if( $add ) {
       echo 'Запис додано!';
@@ -137,7 +135,7 @@
       <div class="container">
         <div class="main__row">
         <h1 class="title">Сировина</h1>
-          <table>
+          <table class="center">
             <tr>
               <!-- <th>Код норми виготовлення продукції</th> -->
               <th>Назва сировини</th>
@@ -149,17 +147,28 @@
             <tr>
             <?php
               $rowTemp = $row;
+
+              $id1 = array_shift($rowTemp);
               
-              $id = array_shift($rowTemp);
-              foreach($rowTemp as $key => $value) {
-                echo '<td>' . $value . '</td>';
-              } ?>
+              // foreach($rowTemp as $key => $value) {
+              //   echo '<td>' . $value . '</td>';
+              // } 
+              
+              echo '<td>' . $rowTemp['Назва'] . '</td>';
+              
+              $id = $rowTemp['Код_виду_сировини'];
+              $value = getFieldFromTableById("Назва_сировини", "вид_сировини", $id);
+
+              echo '<td>' . $value . '</td>';              
+
+            ?>
+
               <form action="#" method="POST">
                 <td class="white">
-                  <button class="btn" type="submit" name="del" value="<?php echo $id; ?>">Видалити!</button>
+                  <button class="btn" type="submit" name="del" value="<?php echo $id1; ?>">Видалити!</button>
                 </td>
                 <td class="white">
-                  <button class="btn" type="submit" name="edit" value="<?php echo $id; ?>">Редагувати!</button>
+                  <button class="btn" type="submit" name="edit" value="<?php echo $id1; ?>">Редагувати!</button>
                 </td>
               </form>        
             </tr>

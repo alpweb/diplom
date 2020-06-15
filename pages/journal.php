@@ -11,11 +11,6 @@
   $table2 = getTable($tableName2);
   $table3 = getTable($tableName3);
 
-  // view($table1);
-  // view($select1);
-  // view($select2);
-  // view($select3);
-
   $fields = getFields($table);
   $nameID = $fields[0];
 

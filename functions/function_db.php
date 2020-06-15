@@ -1,7 +1,6 @@
 <?php
 include_once('connect_db.php');
 
-
 /**
  * Получаем имена всех таблиц из БД
  * 
@@ -72,16 +71,6 @@ function getFields($table) {
  */
 function addRow($tableName, $data) {
   $link = startup();	
-  
-  // trim();
-
-  //$fields = [];
-  //$values = [];
-
-  echo count($data);
-  view($data);
-
-  echo $tableName;
 
   $i = 0;
 
@@ -100,19 +89,11 @@ function addRow($tableName, $data) {
     $i++;
   }
 
-  echo $fields;
-  echo '<br>';
-  echo $values;
-  echo '<br>';
-
-	$query = "INSERT INTO `" .  $tableName . "` 
+  $query = "INSERT INTO `" .  $tableName . "` 
               (" . $fields . ") 
             VALUES 
-              (" . $values . ")"; // ------------------------------
+              (" . $values . ")";
       
-
-  echo $query;
-
 	$result = mysqli_query($link, $query);
 							
 	if (!$result)
@@ -120,6 +101,27 @@ function addRow($tableName, $data) {
 
   return true;
 }
+
+/**
+ * Получить значение поля в строке таблицы по id
+ * 
+ * Input $table
+ * Input $field
+ * Input $id
+ * 
+ * Output $value
+ */
+function getFieldFromTableById($field, $table, $id) {
+
+  $link = startup();
+
+  $query = "SELECT `" . $field . "` FROM `" . $table . "` WHERE `id` = " . $id . ";";
+  $res = mysqli_query($link, $query);
+  $row = mysqli_fetch_assoc($res);
+
+  return $row[$field];  
+}
+
 
 /**
  * Подготовка 

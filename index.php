@@ -48,6 +48,7 @@ include_once("functions/function_db.php");
 
 <body>
   <div class="wrapper">
+    
     <div class="header">
       <div class="container">
         <div class="header__row">
