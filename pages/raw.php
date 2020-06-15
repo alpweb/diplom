@@ -209,7 +209,7 @@
         </div>
       </div>        
     </div>
-  </div> 
+  </div>
   
   <!-- Подключаем файл скриптов -->
   <!-- <script src="js/script.js"></script> -->
