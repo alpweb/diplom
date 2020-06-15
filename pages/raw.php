@@ -1,28 +1,23 @@
 <?php
   include_once("../functions/function_db.php");
 
-  $tableName = 'змінний_журнал';
-  $tableName1 = 'вид_продукції';
-  $tableName2 = 'сировина';
-  $tableName3 = 'автоматизовані_лінії';
+  $tableName1 = 'сировина';
+  $tableName2 = 'вид_сировини';
 
-  $table = getTable($tableName);
   $table1 = getTable($tableName1);
   $table2 = getTable($tableName2);
-  $table3 = getTable($tableName3);
 
-  // view($table1);
-  // view($select1);
-  // view($select2);
-  // view($select3);
+  $t1_count = getCount($tableName2);
 
-  $fields = getFields($table);
+  view($table2);
+  echo $t1_count;
+
+  $fields = getFields($table1);
   $nameID = $fields[0];
 
   // $fields_1 = array_slice($fields, 1);
 
   if( isset($_POST['del']) ) {
-    // view($_POST);
     $del = delRow($tableName, $nameID, $_POST['del']);
     header("Refresh: 0");
   }
@@ -36,9 +31,7 @@
     $data = $_POST;
     array_pop($data);
 
-    // view($data);
-
-    $add = addRow($tableName, $data);
+    // $add = addRow($tableName1, $data); ----------------------------------------
     
     if( $add ) {
       echo 'Запис додано!';
@@ -147,23 +140,18 @@
           <table>
             <tr>
               <!-- <th>Код норми виготовлення продукції</th> -->
-              <th>Код продукції</th>
-              <th>Кількість виготовленної продукції, кг</th>
-              <th>Код сировини</th>
-              <th>Код лінії</th>
-              <th>Номер бригади</th>
-              <th>Дата</th>
-              <th>Кількість використанної продукції</th>
+              <th>Назва сировини</th>
+              <th>Назва виду сировини</th>
               <th class="white" colspan="2"></th>
             </tr>
 
-          <?php foreach( $table as $row ) { ?>
+          <?php foreach( $table1 as $row ) { ?>
             <tr>
             <?php
               $rowTemp = $row;
               
               $id = array_shift($rowTemp);
-              foreach($rowTemp as $value) {
+              foreach($rowTemp as $key => $value) {
                 echo '<td>' . $value . '</td>';
               } ?>
               <form action="#" method="POST">
@@ -180,50 +168,27 @@
             <tr>
               <form action="#" method="POST">
                 <td>
-                  <select name="Код_продукції" >    
+                  <select name="Назва" >    
                     <?php
                       foreach ($table1 as $key => $val) {
-                        $v = $val['Код_виду_продукції'];
-                        $name = $val['Назва_продукції'];
-                        echo '<option value="' . $v . '">' . $name . '</option>';
-                      }                    
-                    ?>
-                  </select>
-                </td>
-                <td>
-                  <input class="input" type="text" name="К_сть_виготовлен_прод_кг">
-                </td>
-                <td>
-                  <select name="Код_сировини" >    
-                    <?php
-                      foreach ($table2 as $key => $val) {
                         $v = $val['Код_сировини'];
                         $name = $val['Назва'];
                         echo '<option value="' . $v . '">' . $name . '</option>';
                       }                    
                     ?>
                   </select>
-                </td>
+                </td>               
                 <td>
-                  <select name="Код_лінії" >    
+                  <select name="Код_виду_сировини" >    
                     <?php
-                      foreach ($table3 as $key => $val) {
-                        $v = $val['Код_лінії'];
-                        $name = $val['Назва_лінії'];
+                      foreach ($table2 as $key => $val) {
+                        $v = $val['Код_виду_сировини'];
+                        $name = $val['Назва_сировини'];
                         echo '<option value="' . $v . '">' . $name . '</option>';
                       }                    
                     ?>
                   </select>
-                </td>
-                <td>
-                  <input class="input" type="text" name="Номер_бригади">
-                </td>
-                <td>
-                  <input class="input" type="date" name="Дата">
-                </td>
-                <td>
-                  <input class="input" type="text" name="Кількість_використаної_сировини">
-                </td>
+                </td>                             
                 <td class="white" colspan="2">
                   <button class="btn add-btn" type="submit" name="add">Додати запис!</button>
                 </td>

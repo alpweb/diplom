@@ -150,6 +150,18 @@ function delRow($table, $nameID, $id) {
   return true;  
 }
 
+function getCount($table) {
+  $link = startup();
+
+  $query = "SELECT COUNT(*) FROM $table";
+  
+  $result = mysqli_query($link, $query);
+
+  $count = mysqli_num_rows($result);
+
+  return $count;
+}
+
 // ----------------------------------------
 
 function view($a) {
