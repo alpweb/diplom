@@ -37,7 +37,7 @@ include_once("../functions/function_db.php");
         <div class="menu">
           <ul class="menu__list">              
             <li class="menu__item">
-              <a href="pages/journal.php" class="menu__link">Змінний журнал</a>              
+              <a href="pages/journal.php" class="menu__link active">Змінний журнал</a>              
             </li>
             <li class="menu__item">
               <a href="#" class="menu__link">Сировина</a>

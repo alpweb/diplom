@@ -128,6 +128,11 @@ body {
 .menu__link:hover {
   background-color: #ccc;
 }
+.active {
+  font-weight: 700;
+  pointer-events: none;
+  cursor: default;
+}
 .sub-menu__list {
   display: none;
   min-width: 300px;
